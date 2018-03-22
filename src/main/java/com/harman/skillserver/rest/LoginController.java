@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.harman.Model.AppModel.LoginModel;
-import com.harman.Model.AppModel.User;
+import com.harman.skillserver.model.LoginModel;
+import com.harman.skillserver.model.User;
 import com.harman.skillserver.service.UserService;
 
 
@@ -34,6 +34,7 @@ public class LoginController {
     if (null != user) {
     mav = new ModelAndView("welcome");
     mav.addObject("firstname", user.getFirstname());
+    mav.addObject("username", user.getUsername());
     } else {
     mav = new ModelAndView("login");
     mav.addObject("message", "Username or Password is wrong!!");

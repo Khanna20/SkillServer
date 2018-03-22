@@ -2,10 +2,11 @@ package com.harman.skillserver.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.harman.Model.AppModel.LoginModel;
-import com.harman.Model.AppModel.User;
+import com.harman.skillserver.beans.AccessTokenUpdate;
 import com.harman.skillserver.dao.UserDao;
 import com.harman.skillserver.exceptions.DatabaseException;
+import com.harman.skillserver.model.LoginModel;
+import com.harman.skillserver.model.User;
 import com.harman.skillserver.service.UserService;
 import org.apache.log4j.Logger;
 
@@ -34,4 +35,16 @@ public class UserServiceImpl implements UserService {
 			throw new DatabaseException(ex.getMessage(), ex.getCause());
 		}
 	}
+
+	@Override
+	public void updateAccessToken(AccessTokenUpdate tokenUpdate) {
+		try {
+			userDao.updateAccessToken(tokenUpdate);
+		} catch (DatabaseException ex) {
+			LOGGER.error(" Error is : " + ex.getMessage(), ex);
+			throw new DatabaseException(ex.getMessage(), ex.getCause());
+		}
+
+	}
+
 }
