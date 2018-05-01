@@ -51,6 +51,13 @@ public class SkillServerController {
 		return response.toString();
 	}
 
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	public @ResponseBody String hello() throws IOException {
+
+		
+		return "Hello".toString();
+	}
+	
 	@RequestMapping(value = "/UpdateAccessToken", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
 					MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.POST)
